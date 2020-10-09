@@ -1,0 +1,58 @@
+#admin .container {
+display: grid;
+place-items: center;
+}
+#reviewsContainer {
+display: none;
+opacity: 0;
+}
+#admin .logo {
+height: 3rem;
+}
+#admin header {
+padding: 2rem 3rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: relative;
+}
+#login {
+max-width: 30rem;
+}
+#logout {
+display: none;
+}
+#initializing {
+color: var(--red);
+font-size: 1.25rem;
+max-height: 2rem;
+overflow: hidden;
+transition: all 0.2s;
+}
+#initializing.hidden {
+max-height: 0;
+}
+#admin .testimonials {
+flex-flow: row wrap;
+-webkit-mask-image: none;
+overflow: hidden;
+}
+#admin .testimonial {
+flex: 0 0 calc(100% / 3 - 2rem);
+width: calc(100% / 3 - 2rem);
+margin: 1rem !important;
+}
+#admin .comment.buttons {
+flex-flow: column;
+}
+#admin .comment.buttons .button {
+margin-top: 1rem;
+margin-left: auto;
+}
+@media (max-width: 850px) {
+#admin .testimonial {
+flex: 0 0 100%;
+width: 100%;
+margin: 0;
+}
+}
