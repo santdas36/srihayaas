@@ -181,200 +181,202 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
     <script defer>
-      var firebaseConfig = {
-        apiKey: "AIzaSyD1RdG27-oiqrvAiSBxwmeH3gfOCIECRh8",
-        authDomain: "srihayaas.firebaseapp.com",
-        databaseURL: "https://srihayaas.firebaseio.com",
-        projectId: "srihayaas",
-        storageBucket: "srihayaas.appspot.com",
-        messagingSenderId: "315127128134",
-        appId: "1:315127128134:web:d74cdae18c6628e3b12a47",
-        measurementId: "G-T8G04B29C8"
-      };
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-      const db = firebase.firestore();
-      
-      document.addEventListener('DOMContentLoaded', () => {
-      
-      var msnry = new Masonry( '.grid', {
-      itemSelector: '.grid-item',
-      columnWidth: '.grid-sizer',
-      percentPosition: true,
-      gutter: 16
-      });
-      
-      const testimonialContainer = document.querySelector('.testimonials');
-      db.collection('reviews').orderBy('time', 'desc').limit(6).get().then((snapshot) => {
-      snapshot.docs.map((doc) => {
-      const data = doc.data();
-      const testimonial = `
-      		<div class="testimonial">
-      			<div class="comment-info">
-      				<img src="${data.imgUrl}"/>
-      				<span class="info">
-      					<h4>${data.name}</h4>
-      					<span>${data.location ? data.location : ''}</span>
-      				</span>
-      			</div>
-      			<div class="comment">
-      				<q>${data.review}</q>
-      			</div>
-      		</div>`;
-      testimonialContainer.insertAdjacentHTML( 'beforeend', testimonial ) 
-      });
-      }).then(() => {
-      setInterval(() => {
-      const tContainer = document.querySelector('.testimonials');
-      const tElement = document.querySelector('.testimonial');
-      if(tContainer.scrollWidth - (tContainer.scrollLeft + tContainer.clientWidth) > tElement.clientWidth) {
-      tContainer.scrollLeft += tElement.clientWidth;
-      } else {
-      tContainer.scrollLeft = 0;
-      }
-      }, 5000);
-      });
-      const reviewForm = document.getElementById('reviewForm');
-      reviewForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const data = new FormData(reviewForm);
-        reviewForm.innerHTML = `
-        			<h3>Thanks for sharing your views!</h3>
-      	<div class="form-input buttons" style="margin-top: 1rem;">
-      		<button class="button buttonMaroon"><span class="fas fa-spin fa-circle-notch"></span><span>Sending...</span></button>
-      	</div>`;
-        db.collection('reviews').add({
-          name: data.get('name'),
-          email: data.get('email'),
-          review: data.get('message'),
-          location: data.get('location'),
-          time: firebase.firestore.FieldValue.serverTimestamp(),
-          imgUrl: `https://avatars.dicebear.com/api/female/${encodeURIComponent(data.get('name'))}.svg`
-        }).then(() => setTimeout(()=> location.reload(), 2000))
-      });
-      
-      const navToggle = document.querySelector('.nav-toggle');
-      const navbar = document.querySelector('.navbar');
-      navToggle.addEventListener('click', () => {
-      if (navbar.classList.contains('open')) {
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyD1RdG27-oiqrvAiSBxwmeH3gfOCIECRh8",
+    authDomain: "srihayaas.firebaseapp.com",
+    databaseURL: "https://srihayaas.firebaseio.com",
+    projectId: "srihayaas",
+    storageBucket: "srihayaas.appspot.com",
+    messagingSenderId: "315127128134",
+    appId: "1:315127128134:web:d74cdae18c6628e3b12a47",
+    measurementId: "G-T8G04B29C8"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  
+const testimonialContainer = document.querySelector('.testimonials');
+
+  const db = firebase.firestore();
+  db.collection('reviews').orderBy('time', 'desc').limit(6).get().then((snapshot) => {
+	snapshot.docs.map((doc) => {
+		const data = doc.data();
+		const testimonial = `
+				<div class="testimonial">
+					<div class="comment-info">
+						<img src="${data.imgUrl}"/>
+						<span class="info">
+							<h4>${data.name}</h4>
+							<span>${data.location ? data.location : ''}</span>
+						</span>
+					</div>
+					<div class="comment">
+						<q>${data.review}</q>
+					</div>
+				</div>`;
+		testimonialContainer.insertAdjacentHTML( 'beforeend', testimonial ) 
+	});
+  }).then(() => {
+  setInterval(() => {
+  const tContainer = document.querySelector('.testimonials');
+const tElement = document.querySelector('.testimonial');
+if(tContainer.scrollWidth - (tContainer.scrollLeft + tContainer.clientWidth) > tElement.clientWidth) {
+tContainer.scrollLeft += tElement.clientWidth;
+} else {
+tContainer.scrollLeft = 0;
+}
+}, 5000);
+});
+  const reviewForm = document.getElementById('reviewForm');
+  reviewForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(reviewForm);
+    reviewForm.innerHTML = `
+    			<h3>Thanks for sharing your views!</h3>
+			<div class="form-input buttons" style="margin-top: 1rem;">
+				<button class="button buttonMaroon"><span class="fas fa-spin fa-circle-notch"></span><span>Sending...</span></button>
+			</div>`;
+    db.collection('reviews').add({
+      name: data.get('name'),
+      email: data.get('email'),
+      review: data.get('message'),
+      location: data.get('location'),
+      time: firebase.firestore.FieldValue.serverTimestamp(),
+      imgUrl: `https://avatars.dicebear.com/api/female/${encodeURIComponent(data.get('name'))}.svg`
+    }).then(() => setTimeout(()=> location.reload(), 2000))
+  });
+
+const navToggle = document.querySelector('.nav-toggle');
+const navbar = document.querySelector('.navbar');
+navToggle.addEventListener('click', () => {
+	if (navbar.classList.contains('open')) {
+		navbar.classList.remove('open');
+		navToggle.classList.remove('open');
+		navToggle.innerText = 'Menu';
+	} else {
+		navbar.classList.add('open');
+		navToggle.classList.add('open');
+		navToggle.innerText = 'Close';
+	}
+});
+
+
+const navHeight = document.querySelector('header').offsetHeight;
+const anchorLinks = document.querySelectorAll('a');
+anchorLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    let linkTo = link.getAttribute('href').split('#')[1];
+    if (linkTo) {
+      e.preventDefault();
       navbar.classList.remove('open');
-      navToggle.classList.remove('open');
-      navToggle.innerText = 'Menu';
-      } else {
-      navbar.classList.add('open');
-      navToggle.classList.add('open');
-      navToggle.innerText = 'Close';
-      }
-      });
-      
-      
-      const navHeight = document.querySelector('header').offsetHeight;
-      const anchorLinks = document.querySelectorAll('a');
-      anchorLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        let linkTo = link.getAttribute('href').split('#')[1];
-        if (linkTo) {
-          e.preventDefault();
-          navbar.classList.remove('open');
-      navToggle.classList.remove('open');
-      setTimeout(() => {
-            document.getElementById(linkTo).scrollIntoView();
-          }, 300);
-        }
-      });
-      });
-      
-      const iconFeature = new ol.Feature({
-      geometry: new ol.geom.Point(ol.proj.fromLonLat([78.1450384, 11.6597032])),
-      name: 'Srihayaas Bridal Studios',
-      });
-      
-      const map = new ol.Map({
-      target: 'map',
-      interactions: ol.interaction.defaults({
-        onFocusOnly: true
+	 navToggle.classList.remove('open');
+	 setTimeout(() => {
+        document.getElementById(linkTo).scrollIntoView();
+      }, 300);
+    }
+  });
+});
+
+const iconFeature = new ol.Feature({
+  geometry: new ol.geom.Point(ol.proj.fromLonLat([78.1450384, 11.6597032])),
+  name: 'Srihayaas Bridal Studios',
+});
+
+const map = new ol.Map({
+  target: 'map',
+  interactions: ol.interaction.defaults({
+    onFocusOnly: true
+  }),
+  layers: [
+    new ol.layer.Tile({
+      source: new ol.source.OSM()
+    }),
+    new ol.layer.Vector({
+      source: new ol.source.Vector({
+        features: [iconFeature]
       }),
-      layers: [
-        new ol.layer.Tile({
-          source: new ol.source.OSM()
-        }),
-        new ol.layer.Vector({
-          source: new ol.source.Vector({
-            features: [iconFeature]
-          }),
-          style: new ol.style.Style({
-            image: new ol.style.Icon({
-              anchor: [0.5, 46],
-              anchorXUnits: 'fraction',
-              anchorYUnits: 'pixels',
-              src: './mapMarker.png'
-            })
-          })
+      style: new ol.style.Style({
+        image: new ol.style.Icon({
+          anchor: [0.5, 46],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          src: './mapMarker.png'
         })
-      ],
-      view: new ol.View({
-        center: ol.proj.fromLonLat([78.1450384, 11.6597032]),
-        zoom: 10
       })
-      });
-      
-      gsap.to('#hero', {
-      scrollTrigger: {
-      trigger: '#hero',
-      start: 'top 100',
-      end: 'bottom top',
-      scrub: true
-      },
-      y: 90,
-      });
-      gsap.to('.hero-image', {
-      scrollTrigger: {
-      trigger: '#hero',
-      start: 'top 100',
-      end: 'bottom top',
-      scrub: true
-      },
-      y: -80,
-      });
-      gsap.to('header', {
-      scrollTrigger: {
-      trigger: '#hero',
-      start: 'top top',
-      end: 'top -100',
-      scrub: true,
-      onLeave: () => {
-      	navbar.classList.add('fixed');
-      },
-      onEnterBack: () => {
-      	navbar.classList.remove('fixed');
-      },
-      },
-      padding: '1rem 2rem',
-      });
-      gsap.to('.logo', {
-      scrollTrigger: {
-      trigger: '#hero',
-      start: 'top 100',
-      end: 'top top',
-      scrub: true,		
-      },
-      height: '3rem',
-      });
-      
-      const reviewButton = document.getElementById('writeReview');
-      const reviewModal = document.getElementById('review');
-      const reviewModalForm = document.querySelector('#review form');
-      const reviewClose = document.getElementById('closeReview');
-      reviewButton.addEventListener('click', () => {
-      gsap.to(reviewModal, {display: 'grid', opacity: 1});
-      gsap.from(reviewModalForm, {y: 50});	
-      });
-      reviewClose.addEventListener('click', () => {
-      gsap.to(reviewModalForm, {y: 50, clearProps: 'all'});	
-      gsap.to(reviewModal, {display: 'none', opacity: 0});
-      });
-      
-      });
+    })
+  ],
+  view: new ol.View({
+    center: ol.proj.fromLonLat([78.1450384, 11.6597032]),
+    zoom: 10
+  })
+});
+
+gsap.to('#hero', {
+	scrollTrigger: {
+		trigger: '#hero',
+		start: 'top 100',
+		end: 'bottom top',
+		scrub: true
+	},
+	y: 90,
+});
+gsap.to('.hero-image', {
+	scrollTrigger: {
+		trigger: '#hero',
+		start: 'top 100',
+		end: 'bottom top',
+		scrub: true
+	},
+	y: -80,
+});
+gsap.to('header', {
+	scrollTrigger: {
+		trigger: '#hero',
+		start: 'top top',
+		end: 'top -100',
+		scrub: true,
+		onLeave: () => {
+			navbar.classList.add('fixed');
+		},
+		onEnterBack: () => {
+			navbar.classList.remove('fixed');
+		},
+	},
+	padding: '1rem 2rem',
+});
+gsap.to('.logo', {
+	scrollTrigger: {
+		trigger: '#hero',
+		start: 'top 100',
+		end: 'top top',
+		scrub: true,		
+	},
+	height: '3rem',
+});
+
+const reviewButton = document.getElementById('writeReview');
+const reviewModal = document.getElementById('review');
+const reviewModalForm = document.querySelector('#review form');
+const reviewClose = document.getElementById('closeReview');
+reviewButton.addEventListener('click', () => {
+	gsap.to(reviewModal, {display: 'grid', opacity: 1});
+	gsap.from(reviewModalForm, {y: 50});	
+});
+reviewClose.addEventListener('click', () => {
+	gsap.to(reviewModalForm, {y: 50, clearProps: 'all'});	
+	gsap.to(reviewModal, {display: 'none', opacity: 0});
+});
+
+
+var msnry = new Masonry( '.grid', {
+ itemSelector: '.grid-item',
+ columnWidth: '.grid-sizer',
+ percentPosition: true,
+ gutter: 16
+});
+
     </script>
   </body>
 </html>
