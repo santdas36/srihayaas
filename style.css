@@ -401,6 +401,9 @@ background: linear-gradient(to right, var(--maroon), var(--red), var(--orange), 
 display: block;
 margin-bottom: 3rem;
 }
+#testimonials {
+background: var(--white);
+}
 #testimonials .buttons {
 display: flex;
 justify-content: space-between;
