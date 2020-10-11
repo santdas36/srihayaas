@@ -371,10 +371,10 @@ reviewClose.addEventListener('click', () => {
 });
 
 
-Promise.all(Array.from(document.images).filter(img => !img.complete).map(img => new Promise(resolve => {
+Promise.all(Array.from(document.querySelectorAll('.grid-item img')).filter(img => !img.complete).map(img => new Promise(resolve => {
 	img.onload = img.onerror = resolve;
  }))).then(() => {
-	comst msnry = new Masonry( '.grid', {
+	const msnry = new Masonry( '.grid', {
  itemSelector: '.grid-item',
  columnWidth: '.grid-sizer',
  percentPosition: true,
