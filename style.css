@@ -14,6 +14,87 @@
 //rgba(255, 205, 178, 1)
 //rgba(255, 241, 230, 1)
 */
+
+#about .container {
+padding-bottom: 0;
+}
+.about-inner {
+display: flex;
+flex-flow: row wrap;
+}
+.about-section img {
+width: 100%;
+padding: 3rem 0 3rem 3rem;
+height: 100%;
+object-fit: cover;
+}
+.about-section:first-child {
+padding: 3rem 1.5rem 3rem 0;
+}
+.about-section {
+padding-right: 1.5rem;
+flex: 0 0 50%;
+margin-bottom: 5rem;
+}
+.about-section h4 + p, .about-section h4 + ul {
+margin-top: 1.5rem;
+}
+.about-section.even {
+padding-left: 1.5rem;
+padding-right: 0;
+}
+.about-hidden {
+display: none;
+opacity: 0;
+}
+#readMore {
+margin: 0 auto;
+}
+.free {
+animation: free 1s infinite;
+}
+.congrats {
+line-height: 1.33;
+margin-bottom: 1.5rem;
+}
+@keyframes free {
+0%, 100% {
+color: var(--maroon);
+}
+50% {
+color: var(--red);
+text-shadow: 0 2px 3px var(--orange);
+}
+}
+.about-inner .buttons {
+width: 100%;
+}
+@media (max-width: 550px) {
+#about .container {
+padding-bottom: 3rem;
+}
+.about-inner {
+flex-flow: column nowrap;
+}
+.about-section {
+flex: 0 0 100% !important;
+padding: 1.5rem 0 !important;
+margin-bottom: 0 !important;
+}
+.about-section:first-child {
+padding-top: 0 !important;
+}
+.about-section img {
+height: auto;
+padding: 0;
+}
+.about-section ul {
+padding-left: 1rem;
+}
+}
+
+
+
 html {
 scroll-behavior: smooth;
 }
