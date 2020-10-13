@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://cdn.jsdelivr.net/npm/eruda"></script> <script>eruda.init();</script>
+
   <head>
     <meta charset="utf-8">
     <title>Srihayaas Bridal Studios</title>
@@ -88,10 +90,12 @@
         		<h2 class="heading">Our Services</h2>
             <span class="headingMargin"></span>
         		<div class="about-inner">
-   <div class="about-section">
- <p>
+
+<div class="about-flex">   		
+<div class="about-section">
+<p>
 <h4 class="congrats">First of all, heartfelt Congratulations on your special day.</h4>
-This is Mrs. Priya Naveen, a well-know and highly experienced makeup artist from Salem. The following are some of the packages that we provide for the brides/baby showers.
+This is Mrs. Priya Naveen, Professional Makeup Artist and International Hair Stylist from Salem. The following are some of the packages that we provide for the brides/baby showers.
 </p>
 <p>
 <ul style="list-style-type: circle">
@@ -104,8 +108,26 @@ This is Mrs. Priya Naveen, a well-know and highly experienced makeup artist from
 The packages include makeup, hair styling, jewellery (on rental basis), flowers/artificial hair decors and saree/Lehenga drape. We also provide At-Venue services, if provided with travel and accomodation charges.
 </p>
 </div>
-<div class="about-section even">
+<div style="align-self: stretch" class="about-section">
 <img class="about-image" src="about.jpg">
+</div>
+</div>
+
+<div style="align-items: flex-start" class="about-flex">   		
+<div class="about-section">
+<h4>Additional On-Demand Services</h4>
+<ul style="list-style-type: circle">
+<li>Blouse designing</li>
+<li>Mehandhi</li>
+<li>Saree prepping</li>
+<li>Skin prepping, Hair prepping</li>
+<li>Bridal lehangas, silk sarees</li>
+<li>Facials, Skin and Hair Care</li>
+<li>Floor and stage decorations</li>
+<li>Event management</li>
+<li>Photography</li>
+<li>Catering</li>
+</ul>
 </div>
 <div class="about-section">
 <h4>Special Offers and Goodies</h4>
@@ -116,34 +138,66 @@ The packages include makeup, hair styling, jewellery (on rental basis), flowers/
 <li>Re-Saree drapping is compliment for brides</li>
 <li>International brands at reasonable price</li>
 </ul>
+<div class="buttons">
+	<a href="#" class="button buttonMaroon small buttonOutline" id="readMore">Read More</a>
 </div>
-<div class="about-section even">
+</div>
+</div>
+
+<div class="about-flex about-hidden">
+<div class="about-section">
+<img class="about-image" src="makeup.jpg">
+</div>
+<div class="about-section">
 <h4>Makeup</h4>
 <p>All the products that I use are by Bobbi Brown, Huda Beauty, MAC, Makeup Forever, Makeup Revolution, Urbandecay, Anastescia, Inglot, Estee Lauder, Kylie cosmetics, Sephora, Tarte, La girl and Temptu cosmetics. The brushes are cleansed and sanitizers are used after every use, ensuring you of your hygiene.
 </p>
 </div>
-<div class="buttons">
-	<a href="#" class="button buttonMaroon small buttonOutline" id="readMore">Read More</a>
 </div>
-<div class="about-section about-hidden">
+
+<div class="about-flex reverse about-hidden">   		
+<div class="about-section shift">
+<img class="about-image" src="hair.jpg">
+</div>
+<div class="about-section">
 <h4>Hair</h4>
-<p>Jadai alagaram with all the accessories are included in your package. Any Hairstyles & up do done with your own hair is a part of your package.
+<p>Jadai alagaram with all the accessories are included in your package. We are specialized in International Hair Styles like Messy Bun, Messy Braids, Mermaid, Cascading Curls, Waves and a lot more. Any Hairstyles & up do done with your own hair is a part of your package.
 </p>
 </div>
-<div class="about-section about-hidden even">
+</div>
+
+<div class="about-flex about-hidden">   		
+<div class="about-section">
+<img class="about-image" src="flowers.jpg">
+</div>
+<div class="about-section">
 <h4>Flowers</h4>
 <p>We provide flowers matching to your outfit. We also design real flower broaches or artificial broaches for hairstyles. We also do arrange injected nature colour flowers.
 </p>
 </div>
-<div class="about-section about-hidden">
+</div>
+
+<div class="about-flex reverse about-hidden">   		
+<div class="about-section shift">
+<img class="about-image" src="saree.jpg">
+</div>
+<div class="about-section">
 <h4>Saree Draping</h4>
 <p>Basic package includes the saree that we drape the bride when we are dressing her up. High definition, Airbrush and celebrity makeup package also includes a complimentary drape that can be utilized for Muhurtham Saree with a touch up. We do more than 10 different types of saree drapping for brides.
 </p>
 </div>
-<div class="about-section about-hidden even">
+</div>
+
+<div class="about-flex about-hidden">   		
+<div class="about-section">
+<img class="about-image" src="jewels.jpg">
+</div>
+<div class="about-section">
 <h4>Jewels</h4>
 <p>We had more than 500 models like Kempu, Antique, Nagaaz, Ad Stone, Silver & Gold, Temple and Shoakers, for you to choose from. We cleanse the Jewels after every use, so that you don't get any skin alergies or side effects.
 </div>
+</div>
+
 </div>
         	</div>
         </section>
@@ -164,6 +218,7 @@ The packages include makeup, hair styling, jewellery (on rental basis), flowers/
               <div class="grid-item"><img src="gallery/11.jpg"></div>
               <div class="grid-item"><img src="gallery/10.jpg"></div>
             </div>
+            <p class="privacy">(We respect our customer's privacy, and that is why you dont see any faces in the above pictures. If you're interested, walk in to our studios to see more sample works)</p>
           </div>
         </section>
         <section id="testimonials">
@@ -214,6 +269,7 @@ The packages include makeup, hair styling, jewellery (on rental basis), flowers/
               <span class="address">
                 <p>Call Us</p>
                 <h5>Mrs. Priya Naveen</h5>
+                <p>Professional Makeup Artist and <br>International Hair Stylist</p>
                 <h5><a href="tel:+919790499496">+91 97904 99496</a></h5>
                 <h5><a href="mailto:srihayaaspriyanaveen@gmail.com">srihayaaspriyanaveen<wbr/>@gmail.com</a></h5>
               </span>
@@ -397,15 +453,6 @@ gsap.to('.hero-image', {
 	},
 	y: -80,
 });
-gsap.to('.about-image', {
-	scrollTrigger: {
-		trigger: '.about-image',
-		start: 'top bottom',
-		end: 'bottom top',
-		scrub: true
-	},
-	y: -80,
-});
 gsap.to('header', {
 	scrollTrigger: {
 		trigger: '#hero',
@@ -437,7 +484,7 @@ readMore.style.display = 'none';
 e.preventDefault();
 gsap.to('.about-hidden', {
 	opacity: 1,
-	display: 'block'
+	display: 'flex'
 });
 gsap.to(readMore, {
 	opacity: 0,
