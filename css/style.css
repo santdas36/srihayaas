@@ -205,10 +205,6 @@ padding: 2rem 0;
 .about-flex.reverse {
 flex-flow: row-reverse nowrap;
 }
-.about-hidden {
-display: none;
-opacity: 0;
-}
 #readMore {
 margin: 0 auto;
 }
