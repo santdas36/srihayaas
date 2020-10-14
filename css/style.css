@@ -211,8 +211,10 @@ margin: 0 auto;
 .privacy {
 margin: 0;
 margin-top: 3rem;
-max-width: 600px;
+max-width: 720px;
 color: var(--red);
+float: right;
+text-align: right;
 }
 .free {
 animation: free 1s infinite;
@@ -237,6 +239,11 @@ margin-top: 3rem;
 @media (max-width: 850px) {
 #about .container {
 padding-bottom: 3rem;
+}
+.privacy {
+float: none;
+font-size: 0.9rem;
+text-align: left;
 }
 .about-flex {
 flex-flow: column nowrap !important;
