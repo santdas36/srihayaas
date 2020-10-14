@@ -319,7 +319,10 @@ padding: 1rem;
 border-radius: 99px;
 background: rgba(0,0,0,0.05);
 }
-
+.service p {
+margin-top: 1rem;
+text-align: center;
+}
 @media (max-width: 1150px) {
 .service-inner {
 padding: 2rem;
