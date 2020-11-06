@@ -391,7 +391,7 @@
       const testimonialContainer = document.querySelector('.testimonials');
 
       const db = firebase.firestore();
-      db.collection('reviews').orderBy('time', 'desc').limit(6).get().then((snapshot) => {
+      db.collection('reviews').orderBy('time', 'desc').limit(10).get().then((snapshot) => {
         snapshot.docs.map((doc) => {
           const data = doc.data();
           const testimonial = `
