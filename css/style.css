@@ -404,7 +404,7 @@ height: 2rem !important;
 .hero-image {
 width: 115%;
 max-width: 115%;
-height: 350px;
+height: 55vh;
 object-fit: cover;
 object-position: 0 10%
 }
