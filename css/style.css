@@ -405,6 +405,7 @@ height: 2rem !important;
 width: 115%;
 max-width: 115%;
 height: 55vh;
+min-height: 300px;
 object-fit: cover;
 object-position: 0 10%
 }
