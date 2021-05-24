@@ -24,7 +24,7 @@ body {
   color: var(--black);
   font-family: "Mulish", sans-serif;
 }
-h1,h2,h3,h4 {
+h1,h2,h3,h4,.h4 {
   font-family: "Playfair Display", serif;
 }
 .wrapper {
@@ -193,7 +193,13 @@ section#hero .container {
   flex: 0 0 50%;
   padding: 0 2rem;
 }
-.about-section h4 {
+.h4 {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: calc(1.275rem + 0.3vw);
+}
+.about-section .h4 {
   margin-bottom: 2rem;
 }
 .about-flex {
@@ -222,13 +228,10 @@ section#hero .container {
 .congrats {
   line-height: 1.33;
   margin-bottom: 1.5rem;
-  font-weight: 700;
-  font-size: calc(1.275rem + 0.3vw);
-  font-family: "Playfair Display", serif;
 }
 
 @media (min-width: 1200px) {
-  .congrats {
+  .h4 {
     font-size: 1.5rem;
   }
 }
@@ -544,7 +547,7 @@ section#hero .container {
   margin-right: 1rem;
   background: var(--yellow);
 }
-.comment-info h4 {
+.comment-info .h4 {
   margin-bottom: 0;
   white-space: nowrap;
   overflow: hidden;
