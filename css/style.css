@@ -102,14 +102,14 @@ header {
   box-shadow: 0 1rem 1.5rem -0.5rem rgba(109, 104, 117, 0.35);
 }
 .button.buttonMaroon {
-  background: linear-gradient(torightbottom, var(--maroon), var(--black));
+  background: linear-gradient(to right bottom, var(--maroon), var(--black));
   box-shadow: 0 1rem 1rem -0.75rem rgba(181, 131, 141, 0.35);
 }
 .button.buttonMaroon:hover {
   box-shadow: 0 1rem 1.5rem -0.5rem rgba(181, 131, 141, 0.5);
 }
 .button.buttonRed {
-  background: linear-gradient(torightbottom, var(--red), var(--maroon));
+  background: linear-gradient(to right bottom, var(--red), var(--maroon));
   box-shadow: 0 1rem 1rem -0.75rem rgba(229, 152, 155, 0.5);
 }
 .button.buttonRed:hover {
@@ -204,12 +204,12 @@ section#hero .container {
 }
 .about-flex {
   display: flex;
-  flex-flow: rownowrap;
+  flex-flow: row nowrap;
   align-items: center;
   padding: 2rem 0;
 }
 .about-flex.reverse {
-  flex-flow: row-reversenowrap;
+  flex-flow: row-reverse nowrap;
 }
 #readMore {
   margin: 0 auto;
@@ -294,16 +294,16 @@ section#hero .container {
   color: var(--white);
 }
 .service.yellow {
-  background: linear-gradient(torightbottom, var(--yellow), var(--orange));
+  background: linear-gradient(to right bottom, var(--yellow), var(--orange));
 }
 .service.orange {
-  background: linear-gradient(torightbottom, var(--orange), var(--red));
+  background: linear-gradient(to right bottom, var(--orange), var(--red));
 }
 .service.red {
-  background: linear-gradient(torightbottom, var(--red), var(--maroon));
+  background: linear-gradient(to right bottom, var(--red), var(--maroon));
 }
 .service.maroon {
-  background: linear-gradient(torightbottom, var(--maroon), var(--black));
+  background: linear-gradient(to right bottom, var(--maroon), var(--black));
 }
 .service:hover {
   z-index: 4;
@@ -503,7 +503,7 @@ section#hero .container {
   height: 0.25rem;
   width: 100%;
   bottom: -0.5rem;
-  background: linear-gradient(toright, var(--maroon), var(--red), var(--orange), var(--yellow), var(--white)80%);
+  background: linear-gradient(to right, var(--maroon), var(--red), var(--orange), var(--yellow), var(--white)80%);
 }
 .headingMargin {
   display: block;
@@ -520,7 +520,7 @@ section#hero .container {
   display: flex;
   overflow: scroll;
   scroll-snap-type: x mandatory;
-  -webkit-mask-image: linear-gradient(toright,black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right,black 80%, transparent 100%);
   scroll-behavior: smooth;
 }
 .testimonials::-webkit-scrollbar {
@@ -670,7 +670,7 @@ section#hero .container {
 .contact-inner {
   width: 50%;
   flex: 0 0 50%;
-  background: linear-gradient(torightbottom, var(--red), var(--maroon));
+  background: linear-gradient(to right bottom, var(--red), var(--maroon));
   color: var(--white);
   padding: 3rem;
   z-index: 2;
